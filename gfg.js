@@ -56,3 +56,23 @@ let question=process.argv[2];
 
 
 })();
+
+const puppeteer = require('puppeteer');
+let cFile = process.argv[2];
+let fs = require("fs");
+let scrap = require("./scrap");
+(async () => {
+  try {
+    browser = await puppeteer.launch({
+      headless: false,
+      defaultViewport: {
+        width: 1280,
+        height: 587
+      }
+    });
+            browser.close();
+  } catch (err) {
+    console.log(err);
+    return err;
+  }
+})()
